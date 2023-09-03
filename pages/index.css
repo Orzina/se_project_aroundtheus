@@ -7,22 +7,19 @@ body {
 
 .page {
   margin: auto;
-  align-items: center;
   flex-direction: column;
   max-width: 1280px;
   font-family: Inter, Arial, sans-serif;
   box-sizing: border-box;
-  background-color: #000;
 }
 
 .page__container {
-  margin: auto;
   max-width: 880px;
+  margin: auto;
 }
 
 .header {
   padding: 45px 19px 0px;
-  background-color: #000;
 }
 
 .header__logo {
@@ -55,6 +52,9 @@ body {
     "description .";
   grid-template-columns: minmax(auto, 373px) auto;
   grid-template-rows: min-content;
+  gap: 7px 18px;
+  align-items: center;
+  margin-right: 18px;
 }
 
 .profile__title {
@@ -62,7 +62,7 @@ body {
   font-weight: 500;
   font-size: 42px;
   line-height: 1.4;
-  margin: 0 0 7px;
+  margin: 0;
 }
 
 .profile__description {
@@ -80,7 +80,7 @@ body {
   height: 24px;
   padding: 0;
   font-size: 0;
-  margin: 20px 18px 0;
+  margin: 0;
   cursor: pointer;
 }
 
@@ -180,7 +180,7 @@ body {
 }
 
 .footer {
-  padding: 67px 18px 0;
+  padding: 67px 18px 36px;
 }
 
 .footer__paragraph {
@@ -191,4 +191,73 @@ body {
   line-height: 1.2;
 }
 
-...
+@media screen and (max-width: 770px) {
+  .profile__info {
+    grid-template-columns: minmax(auto, 305px) auto;
+    gap: 7px 12px;
+    align-items: center;
+  }
+  .profile__title {
+    font-size: 34px;
+    line-height: 1.2;
+  }
+
+  .profile__add-button {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 616px) {
+  .profile {
+    flex-direction: column;
+    padding: 42px 19px 36px;
+  }
+
+  .profile__info {
+    grid-template-columns: minmax(auto, 196px) auto;
+    justify-items: center;
+    gap: 14px 10px;
+    margin: 0 0 36px;
+  }
+
+  .profile__image {
+    margin: 0 0 30px;
+  }
+
+  .profile__title {
+    font-size: 22px;
+  }
+
+  .profile__description {
+    font-size: 14px;
+  }
+
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+  }
+
+  .profile__edit-icon {
+    width: 8px;
+    height: 8px;
+  }
+
+  .profile__add-button {
+    width: 282px;
+    height: 50px;
+    margin: auto;
+  }
+
+  .span2 {
+    grid-column: 1 / span 2;
+  }
+
+  .footer {
+    padding-top: 48px;
+  }
+
+  .footer__paragraph {
+    font-size: 14px;
+  }
+}
