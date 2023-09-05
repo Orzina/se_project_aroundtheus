@@ -1,5 +1,5 @@
 .footer {
-  padding: 67px 0px 36px;
+  padding: 67px 0px 60px;
 }
 
 .footer__paragraph {
@@ -12,7 +12,7 @@
 
 @media screen and (max-width: 616px) {
   .footer {
-    padding: 48px 19px 60px;
+    padding: 48px 19px 36px;
   }
 
   .footer__paragraph {
