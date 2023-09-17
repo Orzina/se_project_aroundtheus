@@ -12,6 +12,37 @@
     <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body class="page">
+    <div class="modal">
+      <div class="modal__container">
+        <button
+          class="modal__close-button"
+          type="button"
+          aria-label="close"
+        ></button>
+        <form class="modal__form">
+          <h2 class="modal__title">Edit profile</h2>
+          <fieldset class="modal__form-fieldset">
+            <input
+              id="name"
+              type="text"
+              name="title"
+              class="modal__form-input"
+              placeholder="Jacques Cousteau"
+              required
+            />
+            <input
+              id="aboutme"
+              type="text"
+              name="description"
+              class="modal__form-input"
+              placeholder="Explorer"
+              required
+            />
+          </fieldset>
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
     <div class="page__content">
       <header class="header page__container">
         <img
