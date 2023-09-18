@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body class="page">
-    <div class="modal">
+    <div class="modal" id="profileEditModal">
       <div class="modal__container">
         <button
           class="modal__close-button"
           type="button"
           aria-label="close"
+          id="profileModalCloseButton"
         ></button>
         <form class="modal__form">
           <h2 class="modal__title">Edit profile</h2>
@@ -27,7 +28,7 @@
               type="text"
               name="title"
               class="modal__form-input"
-              placeholder="Jacques Cousteau"
+              placeholder="Name"
               required
             />
             <input
@@ -35,7 +36,7 @@
               type="text"
               name="description"
               class="modal__form-input"
-              placeholder="Explorer"
+              placeholder="Description"
               required
             />
           </fieldset>
@@ -62,6 +63,7 @@
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
               class="profile__edit-button"
+              id="profileEditButton"
               type="button"
               aria-label="Edit"
             >
