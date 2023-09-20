@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body class="page">
-    <div class="modal" id="profileEditModal">
+    <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button
           class="modal__close-button"
           type="button"
           aria-label="close"
-          id="profileModalCloseButton"
+          id="profile-modal-close-button"
         ></button>
         <form class="modal__form">
           <h2 class="modal__title">Edit profile</h2>
           <fieldset class="modal__form-fieldset">
             <input
-              id="name"
+              id="profile-title-input"
               type="text"
               name="title"
               class="modal__form-input"
@@ -32,7 +32,7 @@
               required
             />
             <input
-              id="aboutme"
+              id="profile-description-input"
               type="text"
               name="description"
               class="modal__form-input"
@@ -60,10 +60,10 @@
             class="profile__image"
           />
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title js-profile-title">Jacques Cousteau</h1>
             <button
               class="profile__edit-button"
-              id="profileEditButton"
+              id="profile-edit-button"
               type="button"
               aria-label="Edit"
             >
@@ -73,7 +73,7 @@
                 class="profile__edit-icon"
               />
             </button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description js-profile-description">Explorer</p>
           </div>
 
           <button class="profile__add-button" type="button" aria-label="Add">
@@ -85,116 +85,28 @@
           </button>
         </section>
         <section class="elements page__container">
-          <ul class="elements__cards">
-            <li class="card">
-              <img
-                src="./images/yosemite.jpg"
-                alt="Yosemite Valley"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Yosemite Valley</h2>
-                <button class="card__button" type="button" aria-label="Like">
-                  <img
-                    src="./images/Like.svg"
-                    class="card__button-icon"
-                    alt="Heart icon"
-                  />
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lake-louise.jpg"
-                alt="lake louise"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Lake Louise</h2>
-                <button class="card__button" type="button" aria-label="Like">
-                  <img
-                    src="./images/Like.svg"
-                    class="card__button-icon"
-                    alt="Heart icon"
-                  />
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/bald-mountains.jpg"
-                alt="bald mountains"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Bald Mountains</h2>
-                <button class="card__button" type="button" aria-label="Like">
-                  <img
-                    src="./images/Like.svg"
-                    class="card__button-icon"
-                    alt="Heart icon"
-                  />
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/latemar.jpg"
-                alt="Latemar"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Latemar</h2>
-                <button class="card__button" type="button" aria-label="Like">
-                  <img
-                    src="./images/Like.svg"
-                    class="card__button-icon"
-                    alt="Heart icon"
-                  />
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/vanoise.jpg"
-                alt="Vanoise National Park"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Vanoise National Park</h2>
-                <button class="card__button" type="button" aria-label="Like">
-                  <img
-                    src="./images/Like.svg"
-                    class="card__card-icon"
-                    alt="Heart icon"
-                  />
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lago.jpg"
-                alt="Lago di Braies"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Lago di Braies</h2>
-                <button class="card__button" type="button" aria-label="Like">
-                  <img
-                    src="./images/Like.svg"
-                    class="card__card-icon"
-                    alt="Heart icon"
-                  />
-                </button>
-              </div>
-            </li>
-          </ul>
+          <ul class="elements__cards js-elements-cards"></ul>
         </section>
       </main>
       <footer class="footer page__container">
         <p class="footer__paragraph">&copy; 2022 Around The U.S.</p>
       </footer>
     </div>
+    <template id="card-template">
+      <li class="card">
+        <img src="" alt="" class="card__image js-card-image" />
+        <div class="card__content">
+          <h2 class="card__title js-card-title"></h2>
+          <button class="card__button" type="button" aria-label="Like">
+            <img
+              src="./images/Like.svg"
+              class="card__card-icon"
+              alt="Heart icon"
+            />
+          </button>
+        </div>
+      </li>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
