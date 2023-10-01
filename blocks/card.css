@@ -45,23 +45,23 @@
 }
 
 .card__button {
+  background-image: url(../images/Like.svg);
+  width: 21px;
+  height: 18px;
   margin: 0;
   padding: 0;
   background-color: transparent;
-  border: black;
+  border: none;
   cursor: pointer;
-}
-
-.card__button:hover {
-  opacity: 50%;
-  transition: opacity 0.1s ease-in;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .card__button_active {
   background-image: url(../images/like-active.svg);
 }
 
-.card__heart-icon {
-  width: 21px;
-  height: 18px;
+.card__button:hover {
+  opacity: 50%;
+  transition: opacity 0.1s ease-in;
 }
