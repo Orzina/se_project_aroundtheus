@@ -80,6 +80,20 @@
       </div>
     </div>
 
+    <!-- Preview modal -->
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__container modal__container_type_preview">
+        <button
+          class="modal__close-button"
+          type="button"
+          aria-label="close"
+          id="preview-modal-close-button"
+        ></button>
+        <img class="modal__preview-image" src="" alt="" />
+        <p class="modal_preview-caption"></p>
+      </div>
+    </div>
+
     <div class="page__content">
       <header class="header page__container">
         <img
@@ -138,8 +152,8 @@
         <img src="" alt="" class="card__image js-card-image" />
         <img
           src="./images/Trash.svg"
-          alt=""
-          class="card__trash-icon js-card-trash-icon"
+          aria-label="Trash"
+          class="card__trash-icon"
         />
         <div class="card__content">
           <h2 class="card__title js-card-title"></h2>

@@ -36,6 +36,7 @@ const profileAddModal = document.querySelector("#profile-add-modal");
 const elementsCards = document.querySelector(".js-elements-cards");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+const cardImagePreviewModal = document.querySelector("#preview-image-modal");
 
 // buttons and other elements//
 const profilAddButton = document.querySelector("#profile-add-button");
@@ -47,6 +48,10 @@ const addModalCloseButton = profileAddModal.querySelector(
   "#add-modal-close-button"
 );
 
+const previewModalCloseButton = cardImagePreviewModal.querySelector(
+  "#preview-modal-close-button"
+);
+
 const profileTitle = document.querySelector(".js-profile-title");
 const profileDescription = document.querySelector(".js-profile-description");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -55,6 +60,12 @@ const profileDescriptionInput = document.querySelector(
 );
 const CardPlaceInput = profileAddModal.querySelector("#profile-place-input");
 const CardLinkInput = profileAddModal.querySelector("#profile-link-input");
+const previewModal = cardImagePreviewModal.querySelector(
+  ".modal__preview-image"
+);
+const previewModalCaption = cardImagePreviewModal.querySelector(
+  ".modal_preview-caption"
+);
 
 //forms//
 const profileEditForm = profileEditModal.querySelector(".modal__form");
@@ -73,9 +84,23 @@ function getCardsElement(cardData) {
   const cardImageEL = cardElement.querySelector(".js-card-image");
   const cardTitleEL = cardElement.querySelector(".js-card-title");
   const likeButton = cardElement.querySelector(".card__button");
+  const trashButton = cardElement.querySelector(".card__trash-icon");
+
+  trashButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__button_active");
   });
+
+  cardImageEL.addEventListener("click", () => {
+    previewModalCaption.textContent = cardData.name;
+    previewModal.src = cardData.link;
+    previewModal.alt = cardData.name;
+    cardImagePreviewModal.classList.add("modal_opened");
+  });
+
   cardTitleEL.textContent = cardData.name;
   cardImageEL.src = cardData.link;
   cardImageEL.alt = cardData.name;
@@ -128,6 +153,10 @@ addModalCloseButton.addEventListener("click", () =>
 
 profileModalCloseButton.addEventListener("click", () =>
   closePopup(profileEditModal)
+);
+
+previewModalCloseButton.addEventListener("click", () =>
+  closePopup(cardImagePreviewModal)
 );
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);

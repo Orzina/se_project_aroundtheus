@@ -26,6 +26,24 @@
   flex-direction: column;
 }
 
+.modal__container_type_preview {
+  padding: 0;
+  background-color: transparent;
+}
+
+.modal_preview-caption {
+  color: #fff;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 12px;
+  margin: 0;
+  padding-top: 10px;
+}
+
+.modal__preview-image {
+  max-height: 75vh;
+  max-width: 75vw;
+}
+
 .modal__close-button {
   position: absolute;
   bottom: calc(100% + 5px);
