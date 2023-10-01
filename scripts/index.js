@@ -29,10 +29,15 @@ const initialCards = [
 /*                                  Elements                                  */
 /* -------------------------------------------------------------------------- */
 
+//Wrappers//
+
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileAddModal = document.querySelector("#profile-add-modal");
+const elementsCards = document.querySelector(".js-elements-cards");
+const cardTemplate =
+  document.querySelector("#card-template").content.firstElementChild;
 
-// buttons //
+// buttons and other elements//
 const profilAddButton = document.querySelector("#profile-add-button");
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileModalCloseButton = profileEditModal.querySelector(
@@ -51,11 +56,9 @@ const profileDescriptionInput = document.querySelector(
 const CardPlaceInput = profileAddModal.querySelector("#profile-place-input");
 const CardLinkInput = profileAddModal.querySelector("#profile-link-input");
 
+//forms//
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardFormElement = profileAddModal.querySelector(".modal__form");
-const elementsCards = document.querySelector(".js-elements-cards");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -69,6 +72,14 @@ function getCardsElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEL = cardElement.querySelector(".js-card-image");
   const cardTitleEL = cardElement.querySelector(".js-card-title");
+  const likeButton = cardElement.querySelector(".js-card-like-button");
+
+  likeButton.addEventListener =
+    ("click",
+    () => {
+      likeButton.classList.toggle(".js-card-like-button-active");
+    });
+
   cardTitleEL.textContent = cardData.name;
   cardImageEL.src = cardData.link;
   cardImageEL.alt = cardData.name;
