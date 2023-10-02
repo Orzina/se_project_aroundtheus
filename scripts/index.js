@@ -64,7 +64,7 @@ const previewModal = cardImagePreviewModal.querySelector(
   ".modal__preview-image"
 );
 const previewModalCaption = cardImagePreviewModal.querySelector(
-  ".modal_preview-caption"
+  ".modal__preview-caption"
 );
 
 //forms//
