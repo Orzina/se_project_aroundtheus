@@ -126,6 +126,10 @@
     padding: 25px 22px;
   }
 
+  .modal__container_type_preview {
+    padding: 0px;
+  }
+
   .modal__close-button {
     bottom: calc(100% + 22px);
     left: calc(100% - 35px);
@@ -148,5 +152,12 @@
     font-size: 14px;
     width: 238px;
     height: 46px;
+  }
+
+  .modal__close-button_type_mobile {
+    width: 30px;
+    height: 30px;
+    bottom: calc(100% + 5px);
+    left: calc(100% + 5px);
   }
 }
