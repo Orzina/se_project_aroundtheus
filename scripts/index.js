@@ -99,10 +99,10 @@ function getCardsElement(cardData) {
   });
 
   cardImageEL.addEventListener("click", () => {
-    openPopup(cardImagePreviewModal);
     previewModalCaption.textContent = cardData.name;
     previewModal.src = cardData.link;
     previewModal.alt = cardData.name;
+    cardImagePreviewModal.classList.add("modal_opened");
   });
 
   cardTitleEL.textContent = cardData.name;
@@ -140,9 +140,13 @@ function handleCardFormSubmit(e) {
 /*                               Event listeners                              */
 /* -------------------------------------------------------------------------- */
 
-profilAddButton.addEventListener("click", () => openPopup(profileAddModal));
+profileEditButton.addEventListener("click", () => {
+  openPopup(profileEditModal);
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
+});
 
-profileEditButton.addEventListener("click", () => openPopup(profileEditModal));
+profilAddButton.addEventListener("click", () => openPopup(profileAddModal));
 
 addModalCloseButton.addEventListener("click", () =>
   closePopup(profileAddModal)
