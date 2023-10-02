@@ -58,8 +58,8 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
-const CardPlaceInput = profileAddModal.querySelector("#profile-place-input");
-const CardLinkInput = profileAddModal.querySelector("#profile-link-input");
+const cardPlaceInput = profileAddModal.querySelector("#profile-place-input");
+const cardLinkInput = profileAddModal.querySelector("#profile-link-input");
 const previewModal = cardImagePreviewModal.querySelector(
   ".modal__preview-image"
 );
@@ -79,6 +79,10 @@ function closePopup(modal) {
   modal.classList.remove("modal_opened");
 }
 
+function openPopup(modal) {
+  modal.classList.add("modal_opened");
+}
+
 function getCardsElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEL = cardElement.querySelector(".js-card-image");
@@ -95,10 +99,10 @@ function getCardsElement(cardData) {
   });
 
   cardImageEL.addEventListener("click", () => {
+    openPopup(cardImagePreviewModal);
     previewModalCaption.textContent = cardData.name;
     previewModal.src = cardData.link;
     previewModal.alt = cardData.name;
-    cardImagePreviewModal.classList.add("modal_opened");
   });
 
   cardTitleEL.textContent = cardData.name;
@@ -125,27 +129,20 @@ function handleProfileEditSubmit(e) {
 
 function handleCardFormSubmit(e) {
   e.preventDefault();
-  const name = CardPlaceInput.value;
-  const link = CardLinkInput.value;
+  const name = cardPlaceInput.value;
+  const link = cardLinkInput.value;
   renderCard({ name, link }, elementsCards);
   closePopup(profileAddModal);
+  e.target.reset();
 }
 
 /* -------------------------------------------------------------------------- */
 /*                               Event listeners                              */
 /* -------------------------------------------------------------------------- */
 
-profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal_opened");
-});
+profilAddButton.addEventListener("click", () => openPopup(profileAddModal));
 
-profilAddButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-  profileAddModal.classList.add("modal_opened");
-});
+profileEditButton.addEventListener("click", () => openPopup(profileEditModal));
 
 addModalCloseButton.addEventListener("click", () =>
   closePopup(profileAddModal)
