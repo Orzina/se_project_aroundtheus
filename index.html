@@ -24,24 +24,33 @@
         <form class="modal__form">
           <h2 class="modal__title">Edit profile</h2>
           <fieldset class="modal__form-fieldset">
-            <input
-              id="profile-title-input"
-              type="text"
-              name="title"
-              class="modal__form-input"
-              placeholder="Name"
-              required
-            />
-            <input
-              id="profile-description-input"
-              type="text"
-              name="description"
-              class="modal__form-input"
-              placeholder="Description"
-              required
-            />
+            <label class="form__label">
+              <input
+                id="profile-title-input"
+                type="text"
+                name="title"
+                class="modal__form-input"
+                placeholder="Name"
+                required
+              />
+            </label>
+            <label class="form__label">
+              <input
+                id="profile-description-input"
+                type="text"
+                name="description"
+                class="modal__form-input"
+                placeholder="Description"
+                required
+              />
+            </label>
           </fieldset>
-          <button class="modal__button" type="submit">Save</button>
+          <button
+            class="modal__button modal__button_type_inactive"
+            type="submit"
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -58,22 +67,31 @@
         <form class="modal__form">
           <h2 class="modal__title">New place</h2>
           <fieldset class="modal__form-fieldset">
-            <input
-              id="profile-place-input"
-              type="text"
-              name="place"
-              class="modal__form-input"
-              placeholder="Title"
-              required
-            />
-            <input
-              id="profile-link-input"
-              type="text"
-              name="link"
-              class="modal__form-input"
-              placeholder="Image link"
-              required
-            />
+            <label class="form__label">
+              <input
+                id="profile-place-input"
+                type="text"
+                name="place"
+                class="modal__form-input"
+                placeholder="Title"
+                required
+              /><span class="modal__input-error"
+                >Please fill out this field.</span
+              >
+            </label>
+            <label class="form__label">
+              <input
+                id="profile-link-input"
+                type="url"
+                name="link"
+                class="modal__form-input"
+                placeholder="Image link"
+                required
+              />
+              <span class="modal__input-error"
+                >Please enter a web address.</span
+              >
+            </label>
           </fieldset>
           <button class="modal__button" type="submit">Create</button>
         </form>
