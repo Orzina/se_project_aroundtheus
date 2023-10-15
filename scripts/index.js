@@ -70,6 +70,8 @@ const previewModalCaption = cardImagePreviewModal.querySelector(
 //forms//
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardFormElement = profileAddModal.querySelector(".modal__form");
+const formElement = document.querySelector(".form");
+const inputElement = document.querySelector(".modal__form-input");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */

@@ -21,7 +21,7 @@
           aria-label="close"
           id="profile-modal-close-button"
         ></button>
-        <form class="modal__form">
+        <form class="modal__form js-modal-form">
           <h2 class="modal__title">Edit profile</h2>
           <fieldset class="modal__form-fieldset">
             <label class="form__label">
@@ -45,12 +45,7 @@
               />
             </label>
           </fieldset>
-          <button
-            class="modal__button modal__button_type_inactive"
-            type="submit"
-          >
-            Save
-          </button>
+          <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
     </div>
@@ -64,7 +59,7 @@
           aria-label="close"
           id="add-modal-close-button"
         ></button>
-        <form class="modal__form">
+        <form class="modal__form js-modal-form">
           <h2 class="modal__title">New place</h2>
           <fieldset class="modal__form-fieldset">
             <label class="form__label">
@@ -180,5 +175,6 @@
       </li>
     </template>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
