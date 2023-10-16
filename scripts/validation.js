@@ -1,3 +1,5 @@
+function showInputError(formElement, inputElement, options);
+
 function checkInputValidity(formElement, inputElement, options) {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, options);
