@@ -1,8 +1,9 @@
-function showInputError(formElement, inputElement, options) {
-  //   const ErrorMessageElement = formElements.querySelector(
-  //     "#" + inputElement.id + "-error"
-  //   );
-  console.log("#" + inputElement.id + "-error");
+function showInputError(formElement, inputElement, { inputErrorClass }) {
+  const errorMessageElement = formElement.querySelector(
+    `#${inputElement.id}-error`
+  );
+  inputElement.classList.add(inputErrorClass);
+  errorMessageElement.textContent = inputElement.validationMessage;
 }
 
 function checkInputValidity(formElement, inputElement, options) {
@@ -18,7 +19,7 @@ function setEventListeners(formElement, options) {
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
-      checkInputValidity(formElements, inputElement, options);
+      checkInputValidity(formElement, inputElement, options);
     });
   });
 }
