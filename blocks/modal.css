@@ -115,10 +115,12 @@
   display: inline;
   color: #ff0000;
   font-family: Inter, Arial, sans-serif;
+  line-height: 1.2;
   font-size: 12px;
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
+  transition: opacity 0.3s;
 }
 /* 
 .modal__button_type_inactive {
