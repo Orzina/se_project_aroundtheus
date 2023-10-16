@@ -1,4 +1,9 @@
-function showInputError(formElement, inputElement, options);
+function showInputError(formElement, inputElement, options) {
+  //   const ErrorMessageElement = formElements.querySelector(
+  //     "#" + inputElement.id + "-error"
+  //   );
+  console.log("#" + inputElement.id + "-error");
+}
 
 function checkInputValidity(formElement, inputElement, options) {
   if (!inputElement.validity.valid) {

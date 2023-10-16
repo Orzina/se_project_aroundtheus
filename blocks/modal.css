@@ -107,11 +107,12 @@
   position: relative;
 }
 
-.modal__form-input:invalid {
+/* .modal__form-input:invalid {
   border-bottom: 1px solid #ff0000;
-}
+} */
 
 .modal__input-error {
+  border-bottom: 1px solid #ff0000;
   display: inline;
   color: #ff0000;
   font-family: Inter, Arial, sans-serif;
