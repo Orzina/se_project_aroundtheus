@@ -2,8 +2,16 @@ function showInputError(formElement, inputElement, { inputErrorClass }) {
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`
   );
-  inputElement.classList.add(inputErrorClass);
   errorMessageElement.textContent = inputElement.validationMessage;
+  errorMessageElement.classList.add(inputErrorClass);
+}
+
+function hideInputError(formElement, inputElement, { inputErrorClass }) {
+  const errorMessageElement = formElement.querySelector(
+    `#${inputElement.id}-error`
+  );
+  errorMessageElement.textContent = "";
+  errorMessageElement.classList.remove(inputErrorClass);
 }
 
 function checkInputValidity(formElement, inputElement, options) {
@@ -14,12 +22,16 @@ function checkInputValidity(formElement, inputElement, options) {
   }
 }
 
+function toggleButtonStates(inputElements, submitButton) {}
+
 function setEventListeners(formElement, options) {
   const { inputSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
+  const submitButton = formElement.querySelector(".modal__button");
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
       checkInputValidity(formElement, inputElement, options);
+      toggleButtonStates(inputElements, submitButton);
     });
   });
 }
