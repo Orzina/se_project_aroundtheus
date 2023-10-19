@@ -16,10 +16,17 @@ function hideInputError(formElement, inputElement, { inputErrorClass }) {
 
 function checkInputValidity(formElement, inputElement, options) {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, options);
-  } else {
-    hideInputError(formElement, inputElement, options);
+    return showInputError(formElement, inputElement, options);
   }
+  hideInputError(formElement, inputElement, options);
+}
+
+function enableButton(button) {
+  button.classList.remove("modal__button_type_inactive");
+}
+
+function disableButton(button) {
+  button.classList.add("modal__button_type_inactive"); //error
 }
 
 function toggleButtonStates(
@@ -34,12 +41,11 @@ function toggleButtonStates(
     }
   });
   if (foundInvalid) {
-    submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
-  } else {
-    submitButton.classList.remove(inactiveButtonClass);
-    submitButton.disabled = false;
+    disableButton(submitButton);
+    return (submitButton.disabled = true);
   }
+  enableButton(submitButton);
+  submitButton.disabled = false;
 }
 
 function setEventListeners(formElement, options) {

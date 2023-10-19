@@ -138,6 +138,20 @@ function handleCardFormSubmit(e) {
   e.target.reset();
 }
 
+function closeModalEsc(e) {
+  if (e.key === "Escape" || e.key === "Esc") {
+    closePopup(profileEditModal);
+    closePopup(profileAddModal);
+  }
+}
+
+function closeModalClickOutside(e) {
+  if (e.target === profileEditModal || e.target === profileAddModal) {
+    closePopup(profileEditModal);
+    closePopup(profileAddModal);
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /*                               Event listeners                              */
 /* -------------------------------------------------------------------------- */
@@ -166,3 +180,7 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardFormElement.addEventListener("submit", handleCardFormSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, elementsCards));
+
+document.addEventListener("keydown", closeModalEsc);
+
+document.addEventListener("click", closeModalClickOutside);
