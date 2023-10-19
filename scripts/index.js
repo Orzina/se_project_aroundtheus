@@ -80,10 +80,12 @@ const modals = document.querySelectorAll(".modal");
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEsc);
 }
 
 function openPopup(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEsc);
 }
 
 function getCardsElement(cardData) {
@@ -139,13 +141,6 @@ function handleCardFormSubmit(e) {
   e.target.reset();
 }
 
-// function closeModalEsc(e) {
-//   if (e.key === "Escape" || e.key === "Esc") {
-//     closePopup(profileEditModal);
-//     closePopup(profileAddModal);
-//   }
-// }
-
 modals.forEach((modal) => {
   modal.addEventListener("mousedown", (evt) => {
     if (evt.target.classList.contains("modal_opened")) {
@@ -157,25 +152,11 @@ modals.forEach((modal) => {
   });
 });
 
-modals.forEach((modal) => {
-  modal.addEventListener("mousedown", (evt) => {
-    if (evt.target.classList.contains("modal_opened")) {
-      closePopup(modal);
-    }
-    if (evt.target.classList.contains("modal__close-button")) {
-      closePopup(modal);
-    }
-  });
-
-  modal.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" || e.key === "Esc") {
-      closePopup(modal);
-    }
-  });
-});
-
-function closePopup(modal) {
-  modal.classList.remove("modal_opened");
+function handleEsc(e) {
+  if (e.key === "Escape") {
+    const modal = document.querySelector(".modal_opened");
+    closePopup(modal);
+  }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -206,5 +187,3 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardFormElement.addEventListener("submit", handleCardFormSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, elementsCards));
-
-// document.addEventListener("keydown", closeModalEsc);
