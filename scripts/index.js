@@ -70,8 +70,9 @@ const previewModalCaption = cardImagePreviewModal.querySelector(
 //forms//
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardFormElement = profileAddModal.querySelector(".modal__form");
-const formElement = document.querySelector(".form");
 const inputElement = document.querySelector(".modal__form-input");
+//
+const modals = document.querySelectorAll(".modal");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -138,18 +139,43 @@ function handleCardFormSubmit(e) {
   e.target.reset();
 }
 
-function closeModalEsc(e) {
-  if (e.key === "Escape" || e.key === "Esc") {
-    closePopup(profileEditModal);
-    closePopup(profileAddModal);
-  }
-}
+// function closeModalEsc(e) {
+//   if (e.key === "Escape" || e.key === "Esc") {
+//     closePopup(profileEditModal);
+//     closePopup(profileAddModal);
+//   }
+// }
 
-function closeModalClickOutside(e) {
-  if (e.target === profileEditModal || e.target === profileAddModal) {
-    closePopup(profileEditModal);
-    closePopup(profileAddModal);
-  }
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("modal_opened")) {
+      closePopup(modal);
+    }
+    if (evt.target.classList.contains("modal__close-button")) {
+      closePopup(modal);
+    }
+  });
+});
+
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("modal_opened")) {
+      closePopup(modal);
+    }
+    if (evt.target.classList.contains("modal__close-button")) {
+      closePopup(modal);
+    }
+  });
+
+  modal.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" || e.key === "Esc") {
+      closePopup(modal);
+    }
+  });
+});
+
+function closePopup(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 /* -------------------------------------------------------------------------- */
@@ -181,6 +207,4 @@ addCardFormElement.addEventListener("submit", handleCardFormSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, elementsCards));
 
-document.addEventListener("keydown", closeModalEsc);
-
-document.addEventListener("click", closeModalClickOutside);
+// document.addEventListener("keydown", closeModalEsc);
