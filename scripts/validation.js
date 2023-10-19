@@ -26,7 +26,7 @@ function enableButton(button) {
 }
 
 function disableButton(button) {
-  button.classList.add("modal__button_type_inactive"); //error
+  button.classList.add("modal__button_type_inactive");
 }
 
 function toggleButtonStates(
