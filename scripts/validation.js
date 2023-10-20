@@ -23,10 +23,12 @@ function checkInputValidity(formElement, inputElement, options) {
 
 function enableButton(button, inactiveButtonClass) {
   button.classList.remove(inactiveButtonClass);
+  button.disabled = true;
 }
 
-function disableButton(button, inactiveButtonClass) {
-  button.classList.add(inactiveButtonClass);
+function disableButton(submitButton, inactiveButtonClass) {
+  submitButton.classList.add(inactiveButtonClass);
+  submitButton.disabled = false;
 }
 
 function toggleButtonStates(inputElements, submitButton, options) {
@@ -36,12 +38,12 @@ function toggleButtonStates(inputElements, submitButton, options) {
       foundInvalid = true;
     }
   });
+
   if (foundInvalid) {
     disableButton(submitButton, options.inactiveButtonClass);
-    return (submitButton.disabled = true);
+  } else {
+    enableButton(submitButton, options.inactiveButtonClass);
   }
-  enableButton(submitButton, options.inactiveButtonClass);
-  submitButton.disabled = false;
 }
 
 function setEventListeners(formElement, options) {
