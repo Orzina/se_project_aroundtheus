@@ -26,9 +26,9 @@ function enableButton(button, inactiveButtonClass) {
   button.disabled = true;
 }
 
-function disableButton(submitButton, inactiveButtonClass) {
-  submitButton.classList.add(inactiveButtonClass);
-  submitButton.disabled = false;
+function disableButton(button, inactiveButtonClass) {
+  button.classList.add(inactiveButtonClass);
+  button.disabled = false;
 }
 
 function toggleButtonStates(inputElements, submitButton, options) {
@@ -38,6 +38,13 @@ function toggleButtonStates(inputElements, submitButton, options) {
       foundInvalid = true;
     }
   });
+  //   if (foundInvalid) {
+  //     disableButton(submitButton, options.inactiveButtonClass);
+  //     return (submitButton.disabled = true);
+  //   }
+  //   enableButton(submitButton, options.inactiveButtonClass);
+  //   submitButton.disabled = false;
+  // }
 
   if (foundInvalid) {
     disableButton(submitButton, options.inactiveButtonClass);
