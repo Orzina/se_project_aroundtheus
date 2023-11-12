@@ -35,7 +35,7 @@ const initialCards = [
 
 const settings = {
   formSelector: ".modal__form",
-  inputSelector: ".modal__input",
+  inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__input_type_error",
@@ -195,7 +195,7 @@ addCardFormElement.addEventListener("submit", handleCardFormSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, elementsCards));
 
-const editformValidator = new FormValidator(settings, profileEditForm);
-const addformValidator = new FormValidator(settings, addCardFormElement);
+// const editformValidator = new FormValidator(settings, profileEditForm);
+// const addformValidator = new FormValidator(settings, addCardFormElement);
 
-editFormValidator.enableValidation();
+// editFormValidator.enableValidation();
