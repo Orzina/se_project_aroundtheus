@@ -3,7 +3,7 @@ export default class Card {
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
-    this._handeImageClick = handleImageClick;
+    this._handleImageClick = handleImageClick;
   }
   //Eventlisteners//
 
@@ -17,13 +17,13 @@ export default class Card {
     this._cardElement
       .querySelector(".card__trash-icon")
       .addEventListener("click", () => {
-        _handleTrashIcon();
+        this._handleTrashIcon();
       });
 
     this._cardElement
       .querySelector(".js-card-image")
       .addEventListener("click", () => {
-        this._handleImageClick(this._name, this._link);
+        this._handleImageClick(cardData);
       });
   }
   //Handlers//
@@ -38,10 +38,10 @@ export default class Card {
     this._cardElement.remove();
   }
 
-  _handeImageClick() {
-    this._cardImageEL.addEventListener("click", () => {
-      this._handleImageClick(this);
-    });
+  _handleImageClick() {
+    this._cardElement
+      .querySelector(".js-card-image")
+      .classList.add("modal_opened");
   }
 
   getView() {
@@ -49,13 +49,16 @@ export default class Card {
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
-    //get card view//
-    this._cardImageEl = this._cardElement.querySelector(".card__image");
+
+    this._cardImageEl = this._cardElement.querySelector(".js-card-image");
     this._cardTitleEl = this._cardElement.querySelector(".card__title");
-    this._cardImageEL.src = this._link;
-    this._cardTitleEL.textContent = this._name;
+
+    this._cardImageEl.src = this._link;
+    this._cardTitleEl.textContent = this._name;
     this._cardImageEl.alt = this._name;
+
     this._setEventListeners();
+
     return this._cardElement;
   }
 }

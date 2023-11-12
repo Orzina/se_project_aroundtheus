@@ -28,13 +28,10 @@ const initialCards = [
   },
 ];
 
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-
-const card = new Card(cardData, "#card-template", handleImageClick);
-card.getView();
+// const cardData = {
+//   name: "Yosemite Valley",
+//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+// };
 
 const settings = {
   formSelector: ".modal__form",
@@ -44,11 +41,6 @@ const settings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
-
-const editformValidator = new FormValidator(settings, editForm);
-const addformValidator = new FormValidator(settings, addForm);
-
-editFormValidator.enableValidation();
 
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
@@ -98,6 +90,7 @@ const addCardFormElement = profileAddModal.querySelector(".modal__form");
 const inputElement = document.querySelector(".modal__form-input");
 //
 const modals = document.querySelectorAll(".modal");
+const cardImageEL = document.querySelector(".js-card-image");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -141,8 +134,9 @@ function getCardsElement(cardData) {
   return cardElement;
 }
 
-function renderCard(cardData, wrapper) {
-  const cardElement = getCardsElement(cardData);
+function renderCard(cardData, wrapper, handleImageClick) {
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  const cardElement = card.getView();
   wrapper.prepend(cardElement);
 }
 
@@ -200,3 +194,8 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardFormElement.addEventListener("submit", handleCardFormSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, elementsCards));
+
+const editformValidator = new FormValidator(settings, profileEditForm);
+const addformValidator = new FormValidator(settings, addCardFormElement);
+
+editFormValidator.enableValidation();
