@@ -38,8 +38,6 @@ export default class FormValidator {
   }
 
   _enableButton() {
-    console.log(this._submitButtonSelector);
-    console.log(this._inactiveButtonClass);
     this._submitButtonElement.classList.remove(this._inactiveButtonClass);
     this._submitButtonElement.disabled = false;
   }

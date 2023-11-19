@@ -23,7 +23,7 @@ export default class Card {
     this._cardElement
       .querySelector(".js-card-image")
       .addEventListener("click", () => {
-        this._handleImageClick(cardData);
+        this._handleImageClick(this._link, this._name);
       });
   }
   //Handlers//
@@ -38,11 +38,11 @@ export default class Card {
     this._cardElement.remove();
   }
 
-  _handleImageClick() {
-    this._cardElement
-      .querySelector(".js-card-image")
-      .classList.add("modal_opened");
-  }
+  // _handleImageClick() {
+  //   this._cardElement
+  //     .querySelector(".js-card-image")
+  //     .classList.add("modal_opened");
+  // }
 
   getView() {
     this._cardElement = document
