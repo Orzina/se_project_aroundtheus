@@ -20,11 +20,9 @@ export default class Card {
         this._handleTrashIcon();
       });
 
-    this._cardElement
-      .querySelector(".js-card-image")
-      .addEventListener("click", () => {
-        this._handleImageClick(this._link, this._name);
-      });
+    this._cardImageEl.addEventListener("click", () => {
+      this._handleImageClick(this._link, this._name);
+    });
   }
   //Handlers//
 
@@ -36,13 +34,8 @@ export default class Card {
 
   _handleTrashIcon() {
     this._cardElement.remove();
+    this._cardElement = null;
   }
-
-  // _handleImageClick() {
-  //   this._cardElement
-  //     .querySelector(".js-card-image")
-  //     .classList.add("modal_opened");
-  // }
 
   getView() {
     this._cardElement = document

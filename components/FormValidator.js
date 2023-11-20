@@ -76,5 +76,6 @@ export default class FormValidator {
       e.preventDefault();
     });
     this._setEventListeners();
+    this._toggleButtonStates();
   }
 }
