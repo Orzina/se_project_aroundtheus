@@ -127,6 +127,7 @@ function handleCardFormSubmit(e) {
   renderCard({ name, link }, elementsCards);
   closePopup(profileAddModal);
   e.target.reset();
+  addFormValidator.resetValidation();
 }
 
 modals.forEach((modal) => {
