@@ -76,15 +76,6 @@ profileEditButton.addEventListener("click", () => {
   newEditModal.open();
 });
 
-// function handleCardFormSubmit(formData) {
-//   const name = formData.name;
-//   const link = formData.link;
-//   const cardData = { name: name, link: link };
-//   elementsCards.addItem(cardData);
-//   profileAddModal.close();
-//   addFormValidator.resetValidation();
-// }
-
 function handleCardFormSubmit(formData) {
   const card = createCard({ name: formData.name, link: formData.link });
   cardSection.addItem(card);
@@ -123,7 +114,6 @@ const cardPreviewModal = new PopupWithImage("#preview-image-modal");
 cardPreviewModal.addEventListeners();
 
 function handleProfileEditSubmit(formData) {
-  //console.log(formData);
   profileUserInfo.setUserInfo(formData.title, formData.description);
   newEditModal.close();
 }
