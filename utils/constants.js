@@ -34,6 +34,17 @@ export const settings = {
   errorClass: "modal__error_visible",
 };
 
+export const profileEditModal = document.querySelector("#profile-edit-modal");
+export const profileAddModal = document.querySelector("#profile-add-modal");
+export const profilAddButton = document.querySelector("#profile-add-button");
+export const profileEditButton = document.querySelector("#profile-edit-button");
+export const profileTitleInput = document.querySelector("#profile-title-input");
+export const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
+export const profileEditForm = profileEditModal.querySelector(".modal__form");
+export const addCardFormElement = profileAddModal.querySelector(".modal__form");
+
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
 /* -------------------------------------------------------------------------- */
