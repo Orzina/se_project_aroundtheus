@@ -4,18 +4,20 @@ class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
     this._handleFormSubmit = handleFormSubmit;
-    this._popupForm = this._popupElement.queryselector("_modal_form");
+    this._popupForm = this._popupElement.queryselector(".js-modal-form");
   }
 
-  _getInputValues() {}
-
-  close() {
-    this._popupForm.reset();
-    super.Popup;
+  _getInputValues() {
+    const inputData = this._popupForm.queryselectorAll(".modal__form-input");
   }
 
   setEventListeners() {
     setEventListeners();
+  }
+
+  close() {
+    this._popupForm.reset();
+    super.Popup;
   }
 
   // The second argument is a callback function that gets called when form is submitted.
