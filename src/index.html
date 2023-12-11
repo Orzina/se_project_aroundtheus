@@ -9,7 +9,6 @@
     <meta name="keywords" content="explore, trips, usa, lake louise" />
     <title>Around the U.S</title>
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body class="page">
     <!-- Edit modal -->
@@ -124,8 +123,13 @@
 
     <div class="page__content">
       <header class="header page__container">
-        <img
+        <!-- <img
           src="./images/Logo.svg"
+          alt="Around the U.S. logo"
+          class="header__logo"
+        /> -->
+        <img
+          src="<%=require('./images/logo.svg')%>"
           alt="Around the U.S. logo"
           class="header__logo"
         />
@@ -133,7 +137,7 @@
       <main class="main">
         <section class="profile page__container">
           <img
-            src="./images/jacques-cousteau.jpg"
+            src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="Jacques Cousteau"
             class="profile__image"
           />
@@ -146,7 +150,7 @@
               aria-label="Edit"
             >
               <img
-                src="./images/Edit.svg"
+                src="<%=require('./images/Edit.svg')%>"
                 alt="Edit icon"
                 class="profile__edit-icon"
               />
@@ -161,7 +165,7 @@
             id="profile-add-button"
           >
             <img
-              src="./images/Add.svg"
+              src="<%=require('./images/Add.svg')%>"
               alt="plus icon"
               class="profile__add-icon"
             />
@@ -179,7 +183,7 @@
       <li class="card">
         <img src="" alt="" class="card__image js-card-image" />
         <img
-          src="./images/Trash.svg"
+          src="<%=require('./images/Trash.svg')%>"
           aria-label="Trash"
           class="card__trash-icon"
         />
