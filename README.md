@@ -14,7 +14,7 @@ https://orzina.github.io/se_project_aroundtheus/
 - Grid
 - Positioning
 - Flat BEM file structure
-- Responsive and adaptive layounts
+- Responsive and adaptive layouts
 
 ## Plan on improving the project
 
