@@ -1,5 +1,10 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import Popup from "../components/Popup.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 
 const initialCards = [
   {
@@ -171,7 +176,19 @@ const addFormValidator = new FormValidator(settings, addCardFormElement);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-//const newCardPopup = new PopupWithForm('#new-card-popup', () = {
+const newCardModal = new PopupWithForm(
+  "#profile-add-modal",
+  handleCardFormSubmit
+);
+newCardModal.setEventListeners();
+const newEditModal = new PopupWithForm(
+  "#profile-edit-modal",
+  handleProfileEditSubmit
+);
+newEditModal.setEventListeners();
+
+const cardPreviewModal = new PopupWithImage("#preview-image-modal");
+cardPreviewModal.setEventListeners();
 
 //});
 //newCardPop.open();
