@@ -1,10 +1,10 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-// import Popup from "../components/Popup.js";
-// import PopupWithForm from "../components/PopupWithForm.js";
-// import Section from "../components/Section.js";
-// import UserInfo from "../components/UserInfo.js";
-// import PopupWithImage from "../components/PopupWithImage.js";
+import Popup from "../components/Popup.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import { initialCards } from "../utils/constants.js";
 import { settings } from "../utils/constants.js";
 
@@ -51,21 +51,30 @@ const modals = document.querySelectorAll(".modal");
 const editFormValidator = new FormValidator(settings, profileEditForm);
 const addFormValidator = new FormValidator(settings, addCardFormElement);
 
-// const newCardModal = new PopupWithForm(
-//   "#profile-add-modal",
-//   handleCardFormSubmit
-// );
-// newCardModal.setEventListeners();
-// const newEditModal = new PopupWithForm(
-//   "#profile-edit-modal",
-//   handleProfileEditSubmit
-// );
-// newEditModal.setEventListeners();
+const newCardModal = new PopupWithForm(
+  "#profile-add-modal",
+  handleCardFormSubmit
+);
+newCardModal.setEventListeners();
 
-// const cardPreviewModal = new PopupWithImage("#preview-image-modal");
-// cardPreviewModal.setEventListeners();
+const cardPreviewModal = new PopupWithImage("#preview-image-modal");
+cardPreviewModal.setEventListeners();
 
-// const profileUserInfo = new UserInfo();
+const newEditModal = new PopupWithForm(
+  "#profile-edit-modal",
+  handleProfileEditSubmit
+);
+newEditModal.setEventListeners();
+
+const profileUserInfo = new UserInfo(
+  ".js-profile-title",
+  ".js-profile-description"
+);
+
+const section = new Section(
+  { items: initialCards, renderer: createCard },
+  ".card"
+);
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
