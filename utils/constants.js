@@ -37,35 +37,3 @@ export const settings = {
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
 /* -------------------------------------------------------------------------- */
-
-//Wrappers//
-
-const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileAddModal = document.querySelector("#profile-add-modal");
-const elementsCards = document.querySelector(".js-elements-cards");
-const cardImagePreviewModal = document.querySelector("#preview-image-modal");
-
-//Buttons and other elements//
-const profilAddButton = document.querySelector("#profile-add-button");
-const profileEditButton = document.querySelector("#profile-edit-button");
-
-const profileTitle = document.querySelector(".js-profile-title");
-const profileDescription = document.querySelector(".js-profile-description");
-const profileTitleInput = document.querySelector("#profile-title-input");
-const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
-const cardPlaceInput = profileAddModal.querySelector("#profile-place-input");
-const cardLinkInput = profileAddModal.querySelector("#profile-link-input");
-const previewModal = cardImagePreviewModal.querySelector(
-  ".modal__preview-image"
-);
-const previewModalCaption = cardImagePreviewModal.querySelector(
-  ".modal__preview-caption"
-);
-
-const modals = document.querySelectorAll(".modal");
-
-//forms//
-const profileEditForm = profileEditModal.querySelector(".modal__form");
-const addCardFormElement = profileAddModal.querySelector(".modal__form");
