@@ -1,51 +1,12 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-import Popup from "../components/Popup.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import Section from "../components/Section.js";
-import UserInfo from "../components/UserInfo.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-
-const initialCards = [
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-];
-
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-
-const settings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__form-input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_type_inactive",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
+// import Popup from "../components/Popup.js";
+// import PopupWithForm from "../components/PopupWithForm.js";
+// import Section from "../components/Section.js";
+// import UserInfo from "../components/UserInfo.js";
+// import PopupWithImage from "../components/PopupWithImage.js";
+import { initialCards } from "../utils/constants.js";
+import { settings } from "../utils/constants.js";
 
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
@@ -82,6 +43,29 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardFormElement = profileAddModal.querySelector(".modal__form");
 //
 const modals = document.querySelectorAll(".modal");
+
+/* -------------------------------------------------------------------------- */
+/*                                  Variables                                 */
+/* -------------------------------------------------------------------------- */
+
+const editFormValidator = new FormValidator(settings, profileEditForm);
+const addFormValidator = new FormValidator(settings, addCardFormElement);
+
+// const newCardModal = new PopupWithForm(
+//   "#profile-add-modal",
+//   handleCardFormSubmit
+// );
+// newCardModal.setEventListeners();
+// const newEditModal = new PopupWithForm(
+//   "#profile-edit-modal",
+//   handleProfileEditSubmit
+// );
+// newEditModal.setEventListeners();
+
+// const cardPreviewModal = new PopupWithImage("#preview-image-modal");
+// cardPreviewModal.setEventListeners();
+
+// const profileUserInfo = new UserInfo();
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -170,26 +154,5 @@ addCardFormElement.addEventListener("submit", handleCardFormSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, elementsCards));
 
-const editFormValidator = new FormValidator(settings, profileEditForm);
-const addFormValidator = new FormValidator(settings, addCardFormElement);
-
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
-
-const newCardModal = new PopupWithForm(
-  "#profile-add-modal",
-  handleCardFormSubmit
-);
-newCardModal.setEventListeners();
-const newEditModal = new PopupWithForm(
-  "#profile-edit-modal",
-  handleProfileEditSubmit
-);
-newEditModal.setEventListeners();
-
-const cardPreviewModal = new PopupWithImage("#preview-image-modal");
-cardPreviewModal.setEventListeners();
-
-//});
-//newCardPop.open();
-//newCardPop.close();
