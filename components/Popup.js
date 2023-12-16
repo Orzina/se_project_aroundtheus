@@ -4,7 +4,7 @@ export default class Popup {
     this._closeButton = this._popupElement.querySelector(
       ".modal__close-button"
     );
-    this._handleEscapeClose = this._handleEscapeClose.bind(this);
+    this._handleEscClose = this._handleEscClose.bind(this);
   }
 
   open() {
@@ -27,7 +27,7 @@ export default class Popup {
     this._popupElement.addEventListener("mousedown", (evt) => {
       if (
         evt.target === this._popupElement ||
-        event.target.classList.contains("modal__close-button")
+        evt.target.classList.contains("modal__close-button")
       ) {
         this.close();
       }
